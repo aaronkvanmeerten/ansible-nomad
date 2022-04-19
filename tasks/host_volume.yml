@@ -6,3 +6,4 @@
     state: directory
     mode: "{{ item['mode'] | default('0755') }}"
   with_items: "{{ nomad_host_volumes }}"
+  when: item['create'] is not defined or item['create'] == true
