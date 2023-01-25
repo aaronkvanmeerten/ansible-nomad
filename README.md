@@ -74,7 +74,7 @@ The role defines most of its variables in `defaults/main.yml`:
 ### `nomad_checksum_file_url`
 
 - Nomad checksum file URL
-- Default value: `https://releases.hashicorp.com/nomad/{{ nomad_version }}/nomad_{{ nomad_version}}_SHA256SUMS`
+- Default value: `https://releases.hashicorp.com/nomad/{{ nomad_version }}/nomad_{{ nomad_version }}_SHA256SUMS`
 
 ### `nomad_bin_dir`
 
@@ -508,7 +508,7 @@ in many Ansible versions, so this feature might not always work.
 ### `nomad_bootstrap_expect`
 
 - Specifies the number of server nodes to wait for before bootstrapping.
-- Default value: `{{ nomad_servers | count or 3 }}}
+- Default value: `{{ nomad_servers | count or 3 } }}
 
 ### `nomad_acl_enabled`
 
