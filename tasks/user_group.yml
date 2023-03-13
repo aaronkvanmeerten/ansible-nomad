@@ -9,7 +9,7 @@
     - nomad_manage_group | bool
 
 - name: Add Nomad user
-  ansible.posix.user:
+  ansible.builtin.user:
     name: "{{ nomad_user }}"
     comment: "Nomad user"
     group: "{{ nomad_group }}"
