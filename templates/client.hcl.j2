@@ -93,3 +93,5 @@ plugin "{{ key }}" {
 {{ plugin_config(value) | replace('\'', '\"') }}
 }
 {% endfor %}
+
+{{ nomad_client_config_custom_hcl }}
