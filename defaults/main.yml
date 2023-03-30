@@ -98,7 +98,7 @@ nomad_job_gc_threshold: "4h"
 nomad_eval_gc_threshold: "1h"
 nomad_deployment_gc_threshold: "1h"
 nomad_encrypt_enable: "{{ lookup('env','NOMAD_ENCRYPT_ENABLE') | default('false', true) }}"
-nomad_raft_protocol: 2
+nomad_raft_protocol: 3
 
 #### Client settings
 nomad_node_class: ""
