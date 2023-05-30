@@ -29,10 +29,13 @@
 
 - name: Include Docker tasks
   ansible.builtin.include_tasks: docker.yml
-  when: nomad_docker_enable | bool
+  when: 
+    - nomad_install_flag
+    - nomad_docker_enable | bool
 
 - name: Install OS packages
   ansible.builtin.include_tasks: install.yml
+  when: nomad_install_flag
 
 - name: Disable SELinux (RHEL)
   ansible.builtin.include_tasks: selinux.yml
@@ -51,11 +54,15 @@
 
 - name: Install Podman plugin
   ansible.builtin.include_tasks: install_podman.yml
-  when: nomad_podman_enable | bool
+  when: 
+    - nomad_install_flag
+    - nomad_podman_enable | bool
 
 - name: Install CNI plugin
   ansible.builtin.include_tasks: cni.yml
-  when: nomad_cni_enable | bool
+  when: 
+    - nomad_install_flag
+    - nomad_cni_enable | bool
 
 - name: Create config directory
   ansible.builtin.file:
@@ -207,7 +214,7 @@
         - name: Enable nomad at startup (systemd)
           ansible.builtin.systemd:
             name: nomad
-            enabled: true
+            enabled: "{{ nomad_enabled_on_boot }}"
 
 - name: Start Nomad
   ansible.builtin.service:
