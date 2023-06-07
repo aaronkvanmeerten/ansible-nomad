@@ -20,6 +20,8 @@ client {
     network_speed = {{ nomad_network_speed }}
     cpu_total_compute = {{ nomad_cpu_total_compute }}
 
+    bridge_network_hairpin_mode = {{ nomad_bridge_network_hairpin_mode | bool | lower}}
+
     gc_interval = "{{ nomad_gc_interval }}"
     gc_disk_usage_threshold = {{ nomad_gc_disk_usage_threshold }}
     gc_inode_usage_threshold = {{ nomad_gc_inode_usage_threshold }}
