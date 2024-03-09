@@ -173,8 +173,10 @@ nomad_acl_policy_ttl: "30s"
 nomad_acl_replication_token: ""
 
 ### Vault
+nomad_environment: "{{ hcv_environment | default('default') }}"
 nomad_vault_enabled: "{{ lookup('env', 'NOMAD_VAULT_ENABLED') | default('no', true) }}"
 nomad_vault_address: "{{ vault_address | default('0.0.0.0', true) }}"
+nomad_vault_jwt_auth_backend_path: "jwt-nomad-{{ nomad_environment }}"
 nomad_vault_allow_unauthenticated: true
 nomad_vault_create_from_role: ""
 nomad_vault_task_token_ttl: ""

@@ -70,11 +70,16 @@ acl {
 
 vault {
   enabled = true
-
+{{ if _nomad_node_client }}
+  address = "{{ nomad_vault_address }}"
+  jwt_auth_backend_path = "{{ nomad_vault_jwt_auth_backend_path }}"
+{{ end }}
+{{ if _nomad_node_server }}
   default_identity {
     aud = ["vault.io"]
     ttl = "1h"
   }
+{{ end }}
 }
 
 {% if nomad_telemetry | default(False) | bool == True %}
