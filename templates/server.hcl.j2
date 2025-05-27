@@ -35,6 +35,7 @@ authoritative_region = "{{ nomad_authoritative_region }}"
                 {{ comma() }}"{{ scheduler }}"
             {%- endfor -%} ]
     num_schedulers = {{ nomad_num_schedulers }}
+    heartbeat_grace = "{{ nomad_heartbeat_grace }}"
 
     node_gc_threshold = "{{ nomad_node_gc_threshold }}"
     eval_gc_threshold = "{{ nomad_eval_gc_threshold }}"

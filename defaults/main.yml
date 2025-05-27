@@ -102,6 +102,7 @@ nomad_deployment_gc_threshold: "1h"
 nomad_encrypt_enable: "{{ lookup('env','NOMAD_ENCRYPT_ENABLE') | default('false', true) }}"
 nomad_raft_protocol: 3
 nomad_default_scheduler_spread: true
+nomad_heartbeat_grace: "30s"
 
 #### Client settings
 nomad_node_class: ""
