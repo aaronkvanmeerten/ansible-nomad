@@ -46,7 +46,7 @@ authoritative_region = "{{ nomad_authoritative_region }}"
 
     raft_protocol = {{ nomad_raft_protocol }}
 
-    {%- if nomad_default_scheduler_spread | bool %}
+    {% if nomad_default_scheduler_spread | bool %}
     default_scheduler_config {
       scheduler_algorithm = "spread"
     }
